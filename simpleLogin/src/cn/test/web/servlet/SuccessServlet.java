@@ -9,7 +9,9 @@ import java.io.IOException;
 import cn.test.domain.User;
 
 @WebServlet("/successServlet")
-public class SuccessServlet extends HttpServlet {
+public class
+
+SuccessServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

@@ -28,5 +28,7 @@ public class BeanUtilsTest {
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
+
+
     }
 }
