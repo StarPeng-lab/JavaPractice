@@ -28,41 +28,131 @@
             text-align: center;
         }
     </style>
+    <script>
+        function deleteUser(id){
+            //用户安全提示
+            if(confirm("您确定要删除吗？")){
+                location.href="${pageContext.request.contextPath}/delUserServlet?id="+id;
+            }
+        }
+        window.onload=function () {
+            //给删除选中按钮添加单击事件
+            document.getElementById("delSelected").onclick = function(){
+                if(confirm("您确定要删除选中条目吗？")){
+                    //判断是否有选中条目
+                    var flag = false;
+                    var cbs=document.getElementsByName("uid");
+                    for(var i=0; i<cbs.length; i++){
+                        if(cbs[i].checked) {//只要有一个条目选中
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if(flag){
+                        document.getElementById("form").submit();//提交表单，并获取表单中提交的信息，如选中的checkbox的value值
+                    }
+                }
+            }
+
+            //1、获取第一个checkbox的id
+            document.getElementById("firstCb").onclick = function(){
+                //2、获取下边列表中的所有checkbox
+                var cbs = document.getElementsByName("uid");
+                //3、遍历
+                for(var i=0; i<cbs.length; i++){
+                    //4、设置这些cbs[i]的checked状态等于firstCb的checked状态
+                    cbs[i].checked = this.checked; //this代表firstCb的组件
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="container">
     <h3 style="text-align: center">用户信息列表</h3>
-    <table border="1" class="table table-bordered table-hover">
-        <tr class="success">
-            <th>编号</th>
-            <th>姓名</th>
-            <th>性别</th>
-            <th>年龄</th>
-            <th>籍贯</th>
-            <th>QQ</th>
-            <th>邮箱</th>
-            <th>操作</th>
-        </tr>
 
-        <c:forEach items="${users}" var="user" varStatus="s">
-            <tr>
-                <td>${s.count}</td>
-                <td>${user.name}</td>
-                <td>${user.gender}</td>
-                <td>${user.age}</td>
-                <td>${user.address}</td>
-                <td>${user.qq}</td>
-                <td>${user.email}</td>
-                <td><a class="btn btn-default btn-sm" href="update.html">修改</a>&nbsp;<a class="btn btn-default btn-sm" href="">删除</a></td>
+    <div style="overflow:hidden;margin-top:35px;margin-bottom:10px;">
+        <div style="float:left">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="exampleInputName">姓名</label>
+                    <input type="text" class="form-control" id="exampleInputName" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputAddress">籍贯</label>
+                    <input type="text" class="form-control" id="exampleInputAddress" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail2">邮箱</label>
+                    <input type="email" class="form-control" id="exampleInputEmail2" >
+                </div>
+                <button type="submit" class="btn btn-default">查询</button>
+            </form>
+        </div>
+        <div style="float:right;">
+            <a class="btn btn-primary" href="${pageContext.request.contextPath}/add.jsp">添加联系人</a>
+            <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">删除选中</a>
+        </div>
+    </div>
+
+    <form id="form" action="${pageContext.request.contextPath}/delSelectServlet" method="post">
+        <table border="1" class="table table-bordered table-hover">
+            <tr class="success">
+                <th><input type="checkbox" id="firstCb"></th>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>籍贯</th>
+                <th>QQ</th>
+                <th>邮箱</th>
+                <th>操作</th>
             </tr>
 
-        </c:forEach>
+            <c:forEach items="${users}" var="user" varStatus="s">
+                <tr>
+                    <td><input type="checkbox" name="uid" value="${user.id}"></td>
+                    <td>${s.count}</td>
+                    <td>${user.name}</td>
+                    <td>${user.gender}</td>
+                    <td>${user.age}</td>
+                    <td>${user.address}</td>
+                    <td>${user.qq}</td>
+                    <td>${user.email}</td>
+                    <td>
+                        <a class="btn btn-default btn-sm" href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">修改</a>&nbsp;
+                        <a class="btn btn-default btn-sm" href="javascript:deleteUser(${user.id})">删除</a></td>
+                </tr>
 
+            </c:forEach>
+        </table>
+    </form>
 
-        <tr>
-            <td colspan="8" align="center"><a class="btn btn-primary" href="add.html">添加联系人</a></td>
-        </tr>
-    </table>
+    <div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <span style="font-size:25px;margin-left:5px;">
+                    共<span>16</span>条记录，共<span>4</span>页
+                </span>
+            </ul>
+        </nav>
+    </div>
 </div>
 </body>
 </html>
+-

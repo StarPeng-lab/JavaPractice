@@ -1,6 +1,5 @@
 package cn.itcast.web.Servlet;
 
-import cn.itcast.domain.User;
 import cn.itcast.service.UserService;
 import cn.itcast.service.impl.UserServiceImpl;
 
@@ -10,21 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/userListServlet")
-public class UserListServlet extends HttpServlet {
+@WebServlet("/delUserServlet")
+public class DelUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        //1、调用UserService完成查询
+        //1、获取id,id为数字型，无需设置编码
+        String id =request.getParameter("id");
+        //2、调用service删除
         UserService service = new UserServiceImpl();
-        List<User> users = service.findAll();
-
-        //2、将用户列表users存入request域
-        request.setAttribute("users",users);
-
-        //3、转发到list.jsp
-        request.getRequestDispatcher("/list.jsp").forward(request,response);
+        service.deleteUser(id);
+        //3、跳转到list.jsp，查询所有的Servlet
+        response.sendRedirect(request.getContextPath()+"/userListServlet");
 
     }
 
