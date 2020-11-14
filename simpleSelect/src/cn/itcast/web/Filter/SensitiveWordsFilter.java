@@ -66,7 +66,7 @@ public class SensitiveWordsFilter implements Filter {
             }
         });
         //放行
-        //chain.doFilter(proxy_req, resp);
+        chain.doFilter(proxy_req, resp);
     }
 
     private List<String> list = new ArrayList<String>(); //敏感词汇集合
