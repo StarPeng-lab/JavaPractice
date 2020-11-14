@@ -17,7 +17,7 @@ import java.util.Set;
 /**
  * 敏感词汇过滤器
  */
-@WebFilter("/SensitiveWordsFilter")
+@WebFilter("/*")
 public class SensitiveWordsFilter implements Filter {
     public void destroy() {
     }

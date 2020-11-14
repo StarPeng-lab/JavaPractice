@@ -34,7 +34,7 @@ public class UpdateUserServlet extends HttpServlet {
         UserService service = new UserServiceImpl();
         service.updateUser(user);
         //5、跳转到list.jsp，查询所有的Servlet，，没有传参数，可以直接用response重定向，而不用request转发
-        response.sendRedirect(request.getContextPath()+"/userListServlet");
+        response.sendRedirect(request.getContextPath()+"/findUserByPageServlet");
 
     }
 
