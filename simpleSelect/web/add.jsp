@@ -22,7 +22,7 @@
     <!-- 3. 导入bootstrap的js文件 -->
     <script src="js/bootstrap.min.js"></script>
     <script>
-        function checkUsername(){
+        /*function checkUsername(){
             var username = document.getElementById("name").value;
             var reg_username=/^[a-zA-Z0-9_\u4e00-\u9fa5]{1,12}$/;
             var flag = reg_username.test(username);
@@ -33,13 +33,44 @@
                 err.innerHTML="用户名格式有误，请保证在1-12个字符内";
             }
             return flag;
-        }
+        }*/
 
         $(function(){
-            document.getElementById("form").onsubmit=function(){
+            /*document.getElementById("form").onsubmit=function(){
                 return checkUsername();
             }
-            document.getElementById("name").onblur=checkUsername;
+            document.getElementById("name").onblur=checkUsername;*/
+
+            //给id为name对应的输入框，绑定blur鼠标离开时间
+            $("#name").blur(function(){
+                var uname = $(this).val(); //this指js对象，用$(js对象)转为jq对象，获得文本输入框的值
+
+                //1、验证用户名格式
+                var reg_username=/^[a-zA-Z0-9_\u4e00-\u9fa5]{1,12}$/;
+                var flag = reg_username.test(uname);
+                var err = document.getElementById("name-err");
+                if(flag){
+                    err.innerHTML="";
+                }else{
+                    err.innerHTML="用户名格式有误，请保证在1-12个字符内";
+                }
+
+                //2、验证用户名是否重复
+                //发送ajax请求，期望服务器响应回的数据格式：{"userExist":true,"msg":"此用户名太受欢迎，请更换一个"}
+                //                                  {"userExist":flase,"msg":""}
+                $.get("checkUsernameServlet",{username:uname},function(data){
+                   var err = $("#name-err");
+                   if(data.userExist){
+                       //用户名已存在
+                       err.css("color","red");
+                       err.html(data.msg);
+                   }else{
+                       //用户名不存在
+                       err.html(data.msg);
+                   }
+                });
+            });
+
 
             //发送ajax请求，加载所有省份数据
             $.get("provinceServlet",{},function(data){
