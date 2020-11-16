@@ -13,6 +13,31 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="js/jquery-2.1.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script>
+            $(function(){
+
+                            <%--"<option name='"+this.id+"' " +  (this.name===${user.address}) ? " selected >" : ">"
+                            +this.name+
+                            "</option>";--%>
+
+                $.get("provinceServlet",{},function(data){
+                    var province = $("#province");
+                    $(data).each(function () {
+                        var option = "<option name='"+this.id+"' ";
+                        var name = this.name; //json对象.键 得到的 值 赋值给 name
+                        var userAddr = "${user.address}"; //javascript中想要正常的使用el表达式，就要为el表达式加上引号
+
+                        if( name == userAddr){ // == 会将类型不同的值转为类型相同再比较
+                            option = option + "selected ";
+                        }
+                        option+=">"+this.name+ "</option>";
+
+                        province.append(option);
+                    });
+                });
+
+            });
+        </script>
         
     </head>
     <body>
@@ -49,8 +74,8 @@
 
           <div class="form-group">
             <label for="address">籍贯：</label>
-             <select name="address" class="form-control" >
-                 <c:if test="${user.address=='广东'}">
+             <select name="address" class="form-control" id="province" >
+                 <%--<c:if test="${user.address=='广东'}">
                     <option value="广东" selected>广东</option>
                     <option value="广西">广西</option>
                     <option value="湖南">湖南</option>
@@ -70,7 +95,7 @@
                      <option value="广东">广东</option>
                      <option value="广西">广西</option>
                      <option value="湖南" >湖南</option>
-                 </c:if>
+                 </c:if>--%>
             </select>
           </div>
 

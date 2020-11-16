@@ -22,12 +22,6 @@
     <!-- 3. 导入bootstrap的js文件 -->
     <script src="js/bootstrap.min.js"></script>
     <script>
-        window.onload=function(){
-            document.getElementById("form").onsubmit=function(){
-                return checkUsername();
-            }
-            document.getElementById("name").onblur=checkUsername;
-        }
         function checkUsername(){
             var username = document.getElementById("name").value;
             var reg_username=/^[a-zA-Z0-9_\u4e00-\u9fa5]{1,12}$/;
@@ -40,6 +34,30 @@
             }
             return flag;
         }
+
+        $(function(){
+            document.getElementById("form").onsubmit=function(){
+                return checkUsername();
+            }
+            document.getElementById("name").onblur=checkUsername;
+
+            //发送ajax请求，加载所有省份数据
+            $.get("provinceServlet",{},function(data){
+                //data返回的是json对象
+                //[{"id":1,"name":"北京"},{"id":2,"name":"上海"},{"id":3,"name":"广州"},{"id":4,"name":"深圳"},{"id":5,"name":"杭州"}]
+                //1.获取select
+                var province = $("#province");
+                //2.遍历json数组
+                $(data).each(function () {
+                    //3.创建<option>
+                    var option = "<option name='"+this.id+"'>"+this.name+"</option>";
+
+                    //4.调用select的append追加option
+                    province.append(option);
+                });
+            });
+        });
+
     </script>
 </head>
 <body>
@@ -65,11 +83,8 @@
 
         <div class="form-group">
             <label for="address">籍贯：</label>
-            <select name="address" class="form-control" id="jiguan">
-                <option value=""></option>
-                <option value="广东">广东</option>
-                <option value="广西">广西</option>
-                <option value="湖南">湖南</option>
+            <select name="address" class="form-control" id="province">
+                <option>--请选择省份--</option>
             </select>
         </div>
 
