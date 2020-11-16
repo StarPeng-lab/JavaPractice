@@ -31,7 +31,7 @@
                             option = option + "selected ";
                         }
                         option+=">"+this.name+ "</option>";
-                       
+
                         province.append(option);
                     });
                 });
