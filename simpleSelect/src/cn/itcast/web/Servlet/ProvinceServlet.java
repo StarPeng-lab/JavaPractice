@@ -16,7 +16,7 @@ import java.util.List;
 @WebServlet("/provinceServlet")
 public class ProvinceServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //1、调用service查询
+        /*//1、调用service查询
         ProvinceService service = new ProvinceServiceImpl();
         List<Province> list = service.findAll();
         //2、序列化list为json
@@ -24,7 +24,18 @@ public class ProvinceServlet extends HttpServlet {
         String json = mapper.writeValueAsString(list);
         //3、响应结果
         response.setContentType("application/json;charset=utf-8");
-        response.getWriter().write(json); //直接访问provinceServlet的话数据会显示在页面上
+        response.getWriter().write(json); //直接访问provinceServlet的话数据会显示在页面上*/
+
+        //采用redis，减少与数据库的交互，对于不经常变动的数据，走缓存进行查询
+        //1、调用service查询
+        ProvinceService service = new ProvinceServiceImpl();
+        String json = service.findAllJson();
+
+        //2、响应结果
+        response.setContentType("application/json;charset=utf-8");
+        response.getWriter().write(json);
+
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
