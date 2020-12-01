@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../../A_study/a_res/Connection_mysql/Connection_mysql.iml" filepath="$PROJECT_DIR$/../../../A_study/a_res/Connection_mysql/Connection_mysql.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Java Practice.iml" filepath="$PROJECT_DIR$/.idea/Java Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringIOC/SpringIOC.iml" filepath="$PROJECT_DIR$/SpringIOC/SpringIOC.iml" />
       <module fileurl="file://$PROJECT_DIR$/basisDemo/basisDemo.iml" filepath="$PROJECT_DIR$/basisDemo/basisDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/simpleLogin/simpleLogin.iml" filepath="$PROJECT_DIR$/simpleLogin/simpleLogin.iml" />
       <module fileurl="file://$PROJECT_DIR$/simpleSelect/simpleSelect.iml" filepath="$PROJECT_DIR$/simpleSelect/simpleSelect.iml" />

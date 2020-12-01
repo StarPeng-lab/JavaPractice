@@ -1,0 +1,8 @@
+Main.class
+cn\com\service\impl\TestServiceImpl.class
+cn\com\dao\DynamicFactory.class
+cn\com\dao\impl\TestDaoImpl.class
+cn\com\domain\User.class
+cn\com\dao\StaticFactory.class
+cn\com\service\TestService.class
+cn\com\dao\TestDao.class
