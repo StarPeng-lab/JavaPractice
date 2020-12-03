@@ -2,12 +2,14 @@ package cn.com.dao.impl;
 
 import cn.com.dao.TestDao;
 import cn.com.domain.User;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
 //无参构造实例化
+@Component("test1")
 public class TestDaoImpl implements TestDao {
     @Override
     public void init(){
