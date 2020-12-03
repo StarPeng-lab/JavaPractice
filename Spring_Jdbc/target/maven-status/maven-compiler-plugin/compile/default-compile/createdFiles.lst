@@ -1,2 +1,3 @@
 domain\U.class
+jdbc\JdbcCrudTemplateTest.class
 jdbc\JdbcTemplateTest.class
