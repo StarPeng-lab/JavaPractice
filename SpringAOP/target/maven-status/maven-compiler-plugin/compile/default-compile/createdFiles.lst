@@ -1,0 +1,5 @@
+cn\com\jdbc\Target.class
+cn\com\jdbc\TargetInterface.class
+cn\com\jdbc\Advice.class
+cn\com\jdbc\ProxyTest.class
+cn\com\jdbc\ProxyTest$1.class

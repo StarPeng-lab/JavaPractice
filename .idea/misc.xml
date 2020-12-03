@@ -8,6 +8,7 @@
       <list>
         <option value="$PROJECT_DIR$/../../../A_study/a_res/Connection_mysql/pom.xml" />
         <option value="$PROJECT_DIR$/SpringIOC/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringAOP/pom.xml" />
       </list>
     </option>
   </component>
