@@ -8,7 +8,7 @@
                 http://www.springframework.org/schema/context
                 http://www.springframework.org/schema/context/spring-context.xsd"
 >
-        <context:component-scan base-package="cn.com"></context:component-scan>
+
 
         <!--<bean id="test1" class="cn.com.dao.impl.TestDaoImpl" scope="singleton" init-method="init" destroy-method="destory"></bean>-->
 
@@ -17,7 +17,13 @@
         <!--<bean id="factory" class="cn.com.dao.DynamicFactory"></bean>
         <bean id="test1" factory-bean="factory" factory-method="getTestDao"/>-->
 
+        <!-- 注解的组件扫描，指定哪个包及哪个子包下的bean需要扫描以便识别使用注解配置的类、字段和方法 -->
+        <context:component-scan base-package="cn.com"></context:component-scan>
+        <!-- 导入其他配置类 -->
         <import resource="applicationContext-user.xml"/>
+
+
+
         <bean id="test1" class="cn.com.dao.impl.TestDaoImpl">
                 <property name="strList">
                         <list>
@@ -56,7 +62,7 @@
                 <property name="user" value="${jdbc.username}"></property>
                 <property name="password" value="${jdbc.password}"></property>
         </bean>
-
+        <!-- 非自定义bean的配置 -->
         <bean id="dataSource_druid" class="com.alibaba.druid.pool.DruidDataSource">
                 <property name="driverClassName" value="${jdbc.Driver}"></property>
                 <property name="url" value="${jdbc.url}"></property>

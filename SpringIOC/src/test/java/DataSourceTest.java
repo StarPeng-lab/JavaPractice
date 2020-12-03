@@ -1,7 +1,9 @@
+import cn.com.config.SpringConfiguration;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.beans.PropertyVetoException;
@@ -57,4 +59,12 @@ public class DataSourceTest {
         DruidDataSource dataSource_druid = (DruidDataSource) app.getBean("dataSource_druid");
         System.out.println("druid："+dataSource_druid);
     }
+
+    @Test
+    public void test4(){
+        ApplicationContext app = new AnnotationConfigApplicationContext(SpringConfiguration.class);
+        ComboPooledDataSource dataSource = (ComboPooledDataSource) app.getBean("dataSource");
+        System.out.println("c3p0："+dataSource);
+    }
+
 }

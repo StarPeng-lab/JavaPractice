@@ -21,15 +21,8 @@
         <context:component-scan base-package="cn.com"></context:component-scan>
         <!-- 导入其他配置类 -->
         <import resource="applicationContext-user.xml"/>
-        <!-- Spring容器加载jdbc.properties文件，如果properties在类加载路径下，如resources目录下，则可以用location="classpath:jdbc.properties" -->
-        <context:property-placeholder location="jdbc.properties"/>
-        <!-- 非自定义bean的配置 -->
-        <bean id="dataSource_druid" class="com.alibaba.druid.pool.DruidDataSource">
-                <property name="driverClassName" value="${jdbc.Driver}"></property>
-                <property name="url" value="${jdbc.url}"></property>
-                <property name="username" value="${jdbc.username}"></property>
-                <property name="password" value="${jdbc.password}"></property>
-        </bean>
+
+
 
         <bean id="test1" class="cn.com.dao.impl.TestDaoImpl">
                 <property name="strList">
@@ -69,7 +62,7 @@
                 <property name="user" value="${jdbc.username}"></property>
                 <property name="password" value="${jdbc.password}"></property>
         </bean>
-
+        <!-- 非自定义bean的配置 -->
         <bean id="dataSource_druid" class="com.alibaba.druid.pool.DruidDataSource">
                 <property name="driverClassName" value="${jdbc.Driver}"></property>
                 <property name="url" value="${jdbc.url}"></property>
