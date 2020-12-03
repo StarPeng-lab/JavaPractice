@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Java Practice.iml" filepath="$PROJECT_DIR$/.idea/Java Practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringAOP/SpringAOP.iml" filepath="$PROJECT_DIR$/SpringAOP/SpringAOP.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringIOC/SpringIOC.iml" filepath="$PROJECT_DIR$/SpringIOC/SpringIOC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring_Jdbc/Spring_Jdbc.iml" filepath="$PROJECT_DIR$/Spring_Jdbc/Spring_Jdbc.iml" />
       <module fileurl="file://$PROJECT_DIR$/basisDemo/basisDemo.iml" filepath="$PROJECT_DIR$/basisDemo/basisDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/simpleLogin/simpleLogin.iml" filepath="$PROJECT_DIR$/simpleLogin/simpleLogin.iml" />
       <module fileurl="file://$PROJECT_DIR$/simpleSelect/simpleSelect.iml" filepath="$PROJECT_DIR$/simpleSelect/simpleSelect.iml" />
