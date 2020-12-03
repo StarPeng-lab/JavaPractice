@@ -1,9 +1,13 @@
 cn\com\cglib\ProxyTest$1.class
-cn\com\jdk\Advice.class
 cn\com\cglib\Advice.class
+cn\com\jdk\Target.class
+cn\com\aop\MyAspect.class
+cn\com\jdk\ProxyTest.class
+cn\com\jdk\Advice.class
+cn\com\aop\TargetInterface.class
 cn\com\jdk\ProxyTest$1.class
 cn\com\cglib\ProxyTest.class
 cn\com\jdk\TargetInterface.class
 cn\com\cglib\Target.class
-cn\com\jdk\Target.class
-cn\com\jdk\ProxyTest.class
+cn\com\aop\AopTest.class
+cn\com\aop\Target.class
