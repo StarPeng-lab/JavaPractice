@@ -1,5 +1,9 @@
-cn\com\jdbc\Target.class
-cn\com\jdbc\TargetInterface.class
-cn\com\jdbc\Advice.class
-cn\com\jdbc\ProxyTest.class
-cn\com\jdbc\ProxyTest$1.class
+cn\com\cglib\ProxyTest$1.class
+cn\com\jdk\Advice.class
+cn\com\cglib\Advice.class
+cn\com\jdk\ProxyTest$1.class
+cn\com\cglib\ProxyTest.class
+cn\com\jdk\TargetInterface.class
+cn\com\cglib\Target.class
+cn\com\jdk\Target.class
+cn\com\jdk\ProxyTest.class
