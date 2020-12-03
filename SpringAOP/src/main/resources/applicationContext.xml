@@ -17,6 +17,10 @@
     <aop:config>
         <aop:aspect ref="myAspect"> <!-- 声明切面 -->
             <aop:before pointcut="execution(public void cn.com.aop.Target.save())" method="before" /> <!-- 切面=切点+通知 -->
+            <aop:after-returning pointcut="execution(* cn.com.aop.*.*(..))" method="afterReturning" />
+            <aop:around pointcut="execution(* cn.com.aop.*.*(..))" method="around"/>
+            <aop:after-throwing pointcut="execution(* cn.com.aop.*.*(..))" method="throwing"/>
+            <aop:after pointcut="execution(* cn.com.aop.*.*(..))" method="after"/>
         </aop:aspect>
     </aop:config>
 </beans>
