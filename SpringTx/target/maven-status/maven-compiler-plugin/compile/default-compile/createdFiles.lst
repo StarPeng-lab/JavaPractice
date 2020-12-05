@@ -1,0 +1,6 @@
+com\cn\domain\Account.class
+com\cn\controller\AccountController.class
+com\cn\dao\AccountDao.class
+com\cn\service\AccountService.class
+com\cn\dao\impl\AccountDaoImpl.class
+com\cn\service\impl\AccountServiceImpl.class
