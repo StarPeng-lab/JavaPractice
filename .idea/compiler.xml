@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SpringTx" />
-        <module name="Connection_mysql" />
-        <module name="Spring_Jdbc" />
         <module name="SpringIOC" />
+        <module name="SpringTx" />
         <module name="SpringAOP" />
+        <module name="SpringTx_anno" />
+        <module name="Spring_Jdbc" />
+        <module name="Connection_mysql" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
@@ -19,6 +20,7 @@
       <module name="SpringAOP" target="1.8" />
       <module name="SpringIOC" target="1.8" />
       <module name="SpringTx" target="1.8" />
+      <module name="SpringTx_anno" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
