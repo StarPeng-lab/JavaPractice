@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+
+</head>
+<body>
+<!--
+    1、展示图片
+    2、设置函数，更改img标签的src属性
+    3、设置定时器，触发函数，定时更改src属性
+-->
+    <img src="img/banner_1.jpg" id="change">
+
+    <script>
+
+        var num = 1;
+        var fun = function(){
+            if(num > 3){
+                num = 1;
+            }
+            var image = document.getElementById("change");
+            image.src="img/banner_"+num+".jpg";
+            num++;
+        }
+
+        setInterval(fun,2000);
+
+    </script>
+</body>
+</html>
