@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动跳转页面</title>
+    <style type="text/css">
+        p{
+            text-align:center;
+        }
+        span{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<!--
+    1、显示自动跳转倒计时字样
+    2、定义方法，获得标签元素的属性、更改内容
+    3、设置定时器，1s执行一次方法
+-->
+    <p>
+        <span id="time">5</span>秒后，自动跳转......
+    </p>
+
+    <script>
+        var time = document.getElementById("time");
+        var second = 5;
+        function showTime(){
+            second--;
+            if(second <= 0){
+                location.href = "http://www.baidu.com";
+            }
+            time.innerHTML = second +""; // num+"" （转为字符串）
+        }
+
+        setInterval(showTime,1000);
+    </script>
+
+</body>
+</html>
