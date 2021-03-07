@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格全选</title>
+    <style type="text/css">
+        div{
+            margin:auto;
+            width:500px;
+        }
+        table{
+            width:500px;
+            border:1px solid;
+        }
+        td,th{
+            text-align:center;
+            border:1px solid;
+        }
+        .out{
+            background-color: white;
+        }
+        .over{
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var cbs = document.getElementsByName("cb");
+
+            document.getElementById("selectAll").onclick = function(){ //全选
+                for(var i=1 ; i<cbs.length; i++){
+                    cbs[i].checked = true;
+                }
+            }
+
+            document.getElementById("unselectAll").onclick = function(){ //全不选
+                for(var i=1 ; i<cbs.length; i++){
+                    cbs[i].checked = false;
+                }
+            }
+
+            document.getElementById("selectRev").onclick = function(){ //反选
+                for(var i=1 ; i<cbs.length; i++){
+                    cbs[i].checked = !cbs[i].checked;
+                }
+            }
+
+            document.getElementById("firstCb").onclick = function(){ //第一个checkBox选中后，全选其他checkBox
+                for(var i=0 ; i<cbs.length ; i++){
+                    cbs[i].checked = this.checked; //引起这次事件的事件源，即firstCb元素对象，无需用getElementById再获取
+                }
+            }
+
+            var trs = document.getElementsByTagName("tr");
+            for(var i=0 ; i<trs.length ; i++){
+                trs[i].onmouseout = function(){ //鼠标移出事件
+                    this.className = "out";
+                }
+                trs[i].onmouseover = function(){ //鼠标移到元素之上
+                    this.className = "over";
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <table>
+            <caption>学生信息表</caption>
+            <tr>
+                <td><input type="checkbox" name="cb" id="firstCb"></td>
+                <td>编号</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="cb"></td>
+                <td>01</td>
+                <td>小红</td>
+                <td>女</td>
+                <td><a href="javacript:void(0)">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="cb"></td>
+                <td>02</td>
+                <td>小明</td>
+                <td>男</td>
+                <td><a href="javacript:void(0)">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="cb"></td>
+                <td>03</td>
+                <td>小小</td>
+                <td>女</td>
+                <td><a href="javacript:void(0)">删除</a></td>
+            </tr>
+        </table>
+
+        <input type="button" id="selectAll" value="全选">
+        <input type="button" id="unselectAll" value="全不选">
+        <input type="button" id="selectRev" value="反选">
+    </div>
+
+</body>
+</html>
