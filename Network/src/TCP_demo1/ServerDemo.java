@@ -17,7 +17,7 @@ public class ServerDemo {
         int len = is.read(bys);
         String data = new String(bys,0,len);
 
-        System.out.println("接收：" + data);
+        System.out.println("接收：" + data); //打印
 
         //3、释放资源
         s.close();
