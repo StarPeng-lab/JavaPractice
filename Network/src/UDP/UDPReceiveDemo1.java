@@ -20,6 +20,7 @@ public class UDPReceiveDemo1 {
 
         System.out.println(new String(datas,0,dp.getLength())); //getLength(): 接收的实际数据长度
 
+        //5、关闭接收端
         ds.close();
     }
 }
