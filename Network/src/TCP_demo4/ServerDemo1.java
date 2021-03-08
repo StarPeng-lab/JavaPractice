@@ -8,7 +8,7 @@ import java.net.Socket;
     服务器：接收到的数据写入文本文件，给出反馈
           因为读数据的方法是阻塞式的，会出现服务器程序一直等待而给不出反馈的问题，通过给出 输出结束标记 解决此问题
  */
-public class ServerDemo {
+public class ServerDemo1 {
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(1662);
 
