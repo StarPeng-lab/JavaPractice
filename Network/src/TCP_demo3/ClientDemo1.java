@@ -6,7 +6,7 @@ import java.net.Socket;
 /*
     客户端：数据来自键盘录入，直到输入的数据是886，发送数据结束
  */
-public class ClientDemo {
+public class ClientDemo1 {
     public static void main(String[] args) throws IOException {
         Socket s = new Socket("192.168.2.185",1662);
 
