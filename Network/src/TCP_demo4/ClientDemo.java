@@ -10,7 +10,7 @@ public class ClientDemo {
     public static void main(String[] args) throws IOException {
         Socket s = new Socket("192.168.2.185",1662);
 
-        BufferedReader br = new BufferedReader(new FileReader("Networt\\test.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("Network\\test.txt"));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
 
         String line;
