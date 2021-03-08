@@ -8,7 +8,7 @@ import java.net.Socket;
 /*
     客户端：发送数据，并接收服务器反馈
  */
-public class ClientDemo2 {
+public class ClientDemo {
     public static void main(String[] args) throws IOException {
         //1、创建客户端的Socket对象
         Socket s = new Socket("192.168.2.185",1662);

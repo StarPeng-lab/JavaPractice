@@ -9,7 +9,7 @@ import java.net.Socket;
 /*
     服务器：接收数据，输出反馈
  */
-public class ServerDemo2 {
+public class ServerDemo {
     public static void main(String[] args) throws IOException {
         //1、创建服务器端的Socket对象（ServerSocket），并绑定本机端口
         ServerSocket ss = new ServerSocket(1662);
