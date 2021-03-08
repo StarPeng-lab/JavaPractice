@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServerDemo1 {
+public class ServerDemo {
     public static void main(String[] args) throws IOException {
         //1、创建服务器端的ServerSocket对象，创建绑定到指定端口的服务器套接字
         ServerSocket ss = new ServerSocket(1662);
