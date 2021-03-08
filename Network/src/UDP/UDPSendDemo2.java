@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
 
+//UDP发送数据：通过键盘录入数据，直到输入886，停止发送
 public class UDPSendDemo2 {
     public static void main(String[] args) throws IOException {
         //1、创建发送端的Socket对象
