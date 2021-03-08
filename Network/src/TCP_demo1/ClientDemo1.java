@@ -12,7 +12,7 @@ import java.io.OutputStream;
 import java.net.*;
 
 //由于TCP是面向连接的协议，因此直接运行ClientDemo.java会报错，需要开启ServerDemo.java，建立通信
-public class ClientDemo {
+public class ClientDemo1 {
     public static void main(String[] args) throws IOException {
         //1、创建客户端的Socket对象
         Socket socket = new Socket("192.168.2.185",1662); //创建流套接字，并将其连接到指定主机上的指定端口号
