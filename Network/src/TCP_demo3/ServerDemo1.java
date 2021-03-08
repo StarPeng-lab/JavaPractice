@@ -10,7 +10,7 @@ import java.net.Socket;
 /*
     服务器：接收到的数据在控制台输出
  */
-public class ServerDemo3 {
+public class ServerDemo1 {
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(1662);
 
