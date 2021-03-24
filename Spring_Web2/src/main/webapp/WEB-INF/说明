@@ -15,5 +15,5 @@ Spring_Web：将Spring的应用上下文对象是通过【new ClassPathXmlApplic
              提供一个工具类`WebApplicationContextUtils.java`供使用者获得应用上下文
 
 Spring_Web2：利用Spring封装的工具完成操作，不必再自己实现监视器以及抽取工具类 WebApplicationContextUtils.java
-        步骤：1、在web.xml中配置ContextLoaderListener监听器（即在pom.xml中导入spring-web坐标）
+        步骤：1、在web.xml中配置ContextLoaderListener监听器，在pom.xml中导入spring-web坐标
              2、使用WebApplicationContextUtils获得应用上下文对象ApplicationContext（详见test.web.UserServlet.java）
