@@ -35,21 +35,18 @@
         <property name="accountDao" ref="accountDao"></property>
     </bean>
 
-    <!-- 配置平台事务管理器 -->
+    <!-- 配置平台事务管理器 ；dao层不同的技术实现，对应用不同的事务管理器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- transactionManager内部会从dataSource中获取Connetion，来开启事务 -->
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!-- 通知 事务的增强 -->
+    <!-- 通知：事务的增强（事务增强的一般是业务方法） -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager"> <!-- transactionManager：平台事务管理器的bean id -->
         <!-- 设置事务的属性信息 -->
         <tx:attributes>
-            <!-- 方法属性 -->
+            <!-- 设置切点属性，切点即为被增强的方法，这里以方法为单元进行配置 -->
             <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" timeout="-1"/>
-            <tx:method name="save" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
-            <tx:method name="findAll" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
-            <tx:method name="update*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
             <tx:method name="*"/>
         </tx:attributes>
     </tx:advice>
@@ -57,6 +54,7 @@
     <!-- 配置事务的aop织入 -->
     <aop:config>
         <aop:pointcut id="txPointcut" expression="execution(* com.cn.service.impl.*.*(..))"/>
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/> <!-- spring 专门为事务的增强提供了advice声明一个通知的切面，无需用aspect声明切面 -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+        <!-- spring 专门为事务的增强提供了advice声明通知，无需用aspect声明切面 （advice-ref：声明 通知的引用）-->
     </aop:config>
 </beans>

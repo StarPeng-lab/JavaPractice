@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/SpringTx/SpringTx.iml" filepath="$PROJECT_DIR$/SpringTx/SpringTx.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringTx_anno/SpringTx_anno.iml" filepath="$PROJECT_DIR$/SpringTx_anno/SpringTx_anno.iml" />
       <module fileurl="file://$PROJECT_DIR$/Spring_Jdbc/Spring_Jdbc.iml" filepath="$PROJECT_DIR$/Spring_Jdbc/Spring_Jdbc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring_Web/Spring_Web.iml" filepath="$PROJECT_DIR$/Spring_Web/Spring_Web.iml" />
       <module fileurl="file://$PROJECT_DIR$/basisDemo/basisDemo.iml" filepath="$PROJECT_DIR$/basisDemo/basisDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/simpleLogin/simpleLogin.iml" filepath="$PROJECT_DIR$/simpleLogin/simpleLogin.iml" />
       <module fileurl="file://$PROJECT_DIR$/simpleSelect/simpleSelect.iml" filepath="$PROJECT_DIR$/simpleSelect/simpleSelect.iml" />
