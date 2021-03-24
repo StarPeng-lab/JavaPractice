@@ -1,0 +1,19 @@
+Spring_Web：将Spring的应用上下文对象是通过【new ClassPathXmlApplicationContext("配置文件名.xml")】方式获取的，
+            每次创建bean时，都要加载一次配置文件，使得配置文件加载多次，应用上下文创建多次；
+
+        改进：在Web项目中，可以使用ServletContextListener监听Web应用的启动，我们可以在Web应用启动时，就加载Spring的配置文件，
+             创建好应用上下文对象ApplicationContext，再把此对象存储到最大的域servletContext域中，
+             这样就可以在任意位置从域中获得应用上下文ApplicationContext对象了；（具体见Spring_Web下的Listener的ContextLoader.java）
+
+     再次改进：由于配置文件的名字可以任意取得，因此我们将文件名在web.xml的全局参数中配置，代码中通过servletContext域对象的getInitParameter(名称)获得，达到解耦目的（具体见Spring_Web下的Listener的ContextLoader.java）
+
+     再次改进：我们是通过serveltContext域对象的getAttribute("名字")来获得上下文对象，为了方便，我们将代码抽取出来，放在WebApplicationUtils.java中，
+             以后我们可以直接通过工具类获得，不必再记忆域中对象对应的名称。
+
+        流程：创建一个监听器的实现类`ContextLoader.java`，
+             在内部加载Spring配置文件，创建应用上下文，并存储到`ServletContext域`中，
+             提供一个工具类`WebApplicationContextUtils.java`供使用者获得应用上下文
+
+Spring_Web2：利用Spring封装的工具完成操作，不必再自己实现监视器以及抽取工具类 WebApplicationContextUtils.java
+        步骤：1、在web.xml中配置ContextLoaderListener监听器（即在pom.xml中导入spring-web坐标）
+             2、使用WebApplicationContextUtils获得应用上下文对象ApplicationContext（详见test.web.UserServlet.java）
