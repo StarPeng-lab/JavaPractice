@@ -12,6 +12,7 @@
         <module name="SpringTx_anno" />
         <module name="Spring_Jdbc" />
         <module name="Connection_mysql" />
+        <module name="Spring_Web2" />
         <module name="Spring_Web" />
       </profile>
     </annotationProcessing>
@@ -19,6 +20,7 @@
       <module name="Connection_mysql" target="1.8" />
       <module name="Spring_Jdbc" target="1.8" />
       <module name="Spring_Web" target="1.8" />
+      <module name="Spring_Web2" target="1.8" />
       <module name="SpringAOP" target="1.8" />
       <module name="SpringIOC" target="1.8" />
       <module name="SpringTx" target="1.8" />
